@@ -29,6 +29,6 @@ int enqueue(DoublyLinkedList *list, void *data) {
     return -1;
 }
 
-int dequeue(DoublyLinkedList *list, void *data){aaaaaa
+int dequeue(DoublyLinkedList *list, void *data){
 
 }

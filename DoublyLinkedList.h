@@ -37,4 +37,5 @@ void show(DoublyLinkedList *list, printNode print);
 void showMem(DoublyLinkedList *list);
 
 #endif
-aa
+
+
