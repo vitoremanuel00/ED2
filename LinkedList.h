@@ -1,7 +1,7 @@
 # ifndef DataStructure_LinkedList_h
 # define  DataStructure_LinkedList_h
 
-# inclui < stdbool.h  >
+#include <stdbool.h>
 
 typedef  struct Nó {
     void *dados;
@@ -10,7 +10,7 @@ typedef  struct Nó {
 
 typedef  struct LinkedList {
     Nó *primeiro;
-    tamanho inteiro ;
+    int tamanho;
 }LinkedList;
 
 typedef  bool (*compare)( void *, void *);
@@ -26,10 +26,9 @@ void * top (LinkedList *list);
 bool  isEmpty (LinkedList *list);
 int  indexOf (LinkedList *list, void *data, compare igual);
 void * getPos (LinkedList *list, int pos);
-Node* getNodeByPos (LinkedList *list, int pos);
+Nó* getNodeByPos (LinkedList *list, int pos);
 int  add (LinkedList *list, int pos, void *data);
 int  addAll (LinkedList *listDest, int pos, LinkedList *listSource);
 void * removePos (LinkedList *list, int pos);
-bool  removeData (LinkedList *lista, void *dados, comparando igual);
-
+bool   removeData (LinkedList *lista, void *dados, compare equal);
 # endif
