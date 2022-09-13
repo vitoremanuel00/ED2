@@ -29,6 +29,6 @@ void* getPos (LinkedList *list, int pos);   //busca dado em uma posiçao especif
 node* getNodeByPos (LinkedList *list, int pos);//retorna o endereço do nó em uma posicao determinada
 int  add (LinkedList *list, int pos, void *data);//adciona em qualquer posiçao
 int  addAll (LinkedList *listDest, int pos, LinkedList *listSource);//adciona varios elemneots a partir de qualquer posiçao
-void* removePos (LinkedList *list, int pos);//remove o dado de ma determinada posiçao
+void* removePos (LinkedList *list, int pos);//remove o dado de uma determinada posiçao
 bool   removeData (LinkedList *lista, void *data, compare equal);//remove determinado dado da lista
 # endif
