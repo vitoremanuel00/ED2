@@ -34,4 +34,4 @@ int dequeue(DoublyLinkedList *list, void *data){
     Node *trashNode = list-> first;             
 
 
-}aaa
+}
