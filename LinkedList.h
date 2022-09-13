@@ -3,13 +3,13 @@
 
 #include <stdbool.h>
 
-typedef  struct no {
+typedef  struct node {
     void *data;
-    struct no *next;
-}no;
+    struct node *next;
+}node;
 
 typedef  struct LinkedList {
-    no *first;
+    node *first;
     int size;
 }LinkedList;
 
@@ -26,7 +26,7 @@ void* top (LinkedList *list);               //mostra quem esta no topo da pilha
 bool  isEmpty (LinkedList *list);           //verifica se a fila esta vazia
 int  indexOf (LinkedList *list, void *data, compare igual);//descobre a posiçao de um elemento especifico
 void* getPos (LinkedList *list, int pos);   //busca dado em uma posiçao especifica
-no* getNodeByPos (LinkedList *list, int pos);//retorna o endereço do nó em uma posicao determinada
+node* getNodeByPos (LinkedList *list, int pos);//retorna o endereço do nó em uma posicao determinada
 int  add (LinkedList *list, int pos, void *data);//adciona em qualquer posiçao
 int  addAll (LinkedList *listDest, int pos, LinkedList *listSource);//adciona varios elemneots a partir de qualquer posiçao
 void* removePos (LinkedList *list, int pos);//remove o dado de ma determinada posiçao
