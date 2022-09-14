@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "LinkedList.h"
+
 bool compara(void *data1, void *data2) {
     int *d1 = (int*)data1;
     int *d2 = (int*)data2;
