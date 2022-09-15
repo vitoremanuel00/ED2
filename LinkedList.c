@@ -75,8 +75,6 @@ int  push (LinkedList *list, void *data){   //insere no topo da pilha
     }
     list->size++;
     return 1;
-
-
 }
 
 
@@ -84,6 +82,29 @@ void* pop (LinkedList *list){         //remove do topo da pilha
     return dequeue(list);
 }
 
+
+void* last (LinkedList *list) {        //consulta o ultimo da fila
+    void *data = NULL;
+    if (!isEmpty(list)) {              //se a lista nao estiver vazio
+        node *aux = list->first;       //ponteiro aux aponta para o primeiro nó
+        while(aux->next != NULL)       //enquanto o proximo nao for nulo, que seria o fim da lista
+            aux=aux->next;             //aux avança ate o ultimo
+        data=aux->data;                //esse é o endereço de memoria que ira ser mostrado como last.
+    }
+    return data;
+}
+
+
+void* last(LinkedList *list) {
+    void *data = NULL;
+    if(!isEmpty(list)) {        //se a lista nao estiver vazia  
+        node *aux=list->first;  //o ponteiro auxiliar aponta pro primeiro  
+        while(aux->next != NULL)//enquanto o aux nao for o ultimo nó
+        aux = aux->next;        //ele avançará para o nó seguinte
+    data= aux-> data;           //data recebe o aux, que esta apontado pro ultimo endereço de memoria/nó
+    }
+    return data;
+}
 
 
 
