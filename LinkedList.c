@@ -2,7 +2,7 @@
 # include <stdlib.h>
 #include "LinkedList.h"
 #include "log.h"
-
+// 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
 
 void init (LinkedList *list) { /* procedimento pra inserir no incio*/
     list -> first = NULL; //se o primeiro for nulo, a lista recebe tamanho 0
@@ -13,10 +13,7 @@ void init (LinkedList *list) { /* procedimento pra inserir no incio*/
 int enqueue(LinkedList *list, void *data){ //inserindo no final da lista
     node *newnode = (node*)malloc(sizeof(node));
 
-    if (newnode == NULL) {
-        log_error("erro de alocação");
-        return -1;
-    }
+    if (newnode == NULL) return -1;
 
     newnode->data=data;
     newnode -> next = NULL;
@@ -28,25 +25,14 @@ int enqueue(LinkedList *list, void *data){ //inserindo no final da lista
         }
         else{                               //se a lista nao estiver vazia, precisamos de uma repetiçao para percorrer ate o ultimo no, pra fazer ele apontar pro novo
             node *aux = list->first;                    //ponteiro auxiliar para o primeiro no
-            while (aux -> next != NULL)    //usar o ponteiro pra percorrer a lista,
-                                            // enquanto existir um proximo ou nao for o ultimo a lista vai caminhar
-                    aux = aux -> next;      //aux avança para o no seguinte
-                    aux -> next = newnode;  //aux recebe o proximo que é nulo, e recebera o novo nó
-            }
+            while (aux -> next != NULL)    //usar o ponteiro pra percorrer a lista,enquanto existir um proximo ou nao for o ultimo a lista vai caminhar
+                    aux=aux->next;      //aux avança para o no seguinte
+            aux->next=newnode;  //aux recebe o proximo que é nulo, e recebera o novo nó                           
+        }
             list->size++; 
             return 1;
 }
 
-bool isEmpty(LinkedList *list) {
-    return (list->size == 0);
-}
-
-
-void *first(LinkedList *list){             //consulta o primeiro da fila 
-    if (isEmpty == NULL) return NULL ;
-    list->first->data; //se tiver vazia retorna null, se nao, retorna o endereço de memoria do dado do 1º no.    
-}
-    
 
 void* dequeue(LinkedList *list){      //remove do inicio
     if(isEmpty == NULL) return NULL; //RETORNA QUE NADA FOI REMOVIDO POIS A LISTA ESTA VAZIA    
@@ -60,6 +46,25 @@ void* dequeue(LinkedList *list){      //remove do inicio
 
     return data;
 }
+
+
+void *first(LinkedList *list){             //consulta o primeiro da fila 
+    if (isEmpty == NULL) return NULL ;
+    list->first->data; //se tiver vazia retorna null, se nao, retorna o endereço de memoria do dado do 1º no.    
+}
+
+
+void* last (LinkedList *list) {        //consulta o ultimo da fila
+    void *data = NULL;
+    if (!isEmpty(list)) {              //se a lista nao estiver vazio
+        node *aux = list->first;       //ponteiro aux aponta para o primeiro nó
+        while(aux->next != NULL)       //enquanto o proximo nao for nulo, que seria o fim da lista
+            aux=aux->next;             //aux avança ate o ultimo
+        data=aux->data;                //esse é o endereço de memoria que ira ser mostrado como last.
+    }
+    return data;
+}
+    
 
 int  push (LinkedList *list, void *data){   //insere no topo da pilha
      node *newnode = (node*) malloc(sizeof(node));
@@ -82,16 +87,13 @@ void* pop (LinkedList *list){         //remove do topo da pilha
     return dequeue(list);
 }
 
+void* top (LinkedList *list){         //mostra o topo da pilha
+    return first(list);
+}
 
-void* last (LinkedList *list) {        //consulta o ultimo da fila
-    void *data = NULL;
-    if (!isEmpty(list)) {              //se a lista nao estiver vazio
-        node *aux = list->first;       //ponteiro aux aponta para o primeiro nó
-        while(aux->next != NULL)       //enquanto o proximo nao for nulo, que seria o fim da lista
-            aux=aux->next;             //aux avança ate o ultimo
-        data=aux->data;                //esse é o endereço de memoria que ira ser mostrado como last.
-    }
-    return data;
+
+bool isEmpty(LinkedList *list) {
+    return (list->size == 0);
 }
 
 
@@ -108,9 +110,3 @@ int  indexOf (LinkedList *list, void *data, compare equal) {//descobre a posiça
 }
 
 
-void* getPos (LinkedList *list, int pos) {   //busca dado em uma posiçao especifica
-
-
-
-
-}

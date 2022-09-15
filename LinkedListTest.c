@@ -20,10 +20,9 @@ int main() {
     enqueue(&list, aux);
     aux = (int *)malloc(sizeof(int));
     *aux=3;
-    enqueue(&list, aux);
+    enqueue(&list, aux); 
     
     printf("%d\n",*((int*)first(&list)));
-
 
     return EXIT_SUCCESS;
 }
