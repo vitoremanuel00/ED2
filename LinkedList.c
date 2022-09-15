@@ -107,4 +107,14 @@ void* last(LinkedList *list) {
 }
 
 
-
+int  indexOf (LinkedList *list, void *data, compare igual) {//descobre a posiçao de um elemento especifico
+    if(isEmpty(list)) return -1; //se a lsita nao estiver vazia, andamos nela contando as posições
+    int count = 0;                  
+    node *aux= list->first;      //aux começa percorrer a lista pela primeira posiçao
+    while (aux!=NULL && !equal(aux->data,data))
+    {
+        aux=aux->next;
+        count++;
+    }
+     return (aux==NULL)?-1:count; //se a lista nao encontrou, retorna -1, se encontrou mostra o valor de count    
+}
