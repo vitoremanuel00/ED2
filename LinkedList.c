@@ -95,26 +95,22 @@ void* last (LinkedList *list) {        //consulta o ultimo da fila
 }
 
 
-void* last(LinkedList *list) {
-    void *data = NULL;
-    if(!isEmpty(list)) {        //se a lista nao estiver vazia  
-        node *aux=list->first;  //o ponteiro auxiliar aponta pro primeiro  
-        while(aux->next != NULL)//enquanto o aux nao for o ultimo nó
-        aux = aux->next;        //ele avançará para o nó seguinte
-    data= aux-> data;           //data recebe o aux, que esta apontado pro ultimo endereço de memoria/nó
-    }
-    return data;
-}
-
-
-int  indexOf (LinkedList *list, void *data, compare igual) {//descobre a posiçao de um elemento especifico
+int  indexOf (LinkedList *list, void *data, compare equal) {//descobre a posiçao de um elemento especifico
     if(isEmpty(list)) return -1; //se a lsita nao estiver vazia, andamos nela contando as posições
     int count = 0;                  
     node *aux= list->first;      //aux começa percorrer a lista pela primeira posiçao
-    while (aux!=NULL && !equal(aux->data,data))
+    while (aux!=NULL && !equal(aux->data,data)) //enquanto o aux nao for o ultimo nó e aux for diferente do dado
     {
-        aux=aux->next;
-        count++;
+        aux=aux->next;          //aux ira avançar na lista
+        count++;                //e o contador ira contar mais uma posicao
     }
      return (aux==NULL)?-1:count; //se a lista nao encontrou, retorna -1, se encontrou mostra o valor de count    
+}
+
+
+void* getPos (LinkedList *list, int pos) {   //busca dado em uma posiçao especifica
+    
+
+
+
 }
