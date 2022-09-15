@@ -14,7 +14,7 @@ int enqueue(LinkedList *list, void *data){ //inserindo no final da lista
     node *newnode = (node*)malloc(sizeof(node));
 
     if (newnode == NULL) {
-        log_error("Memória insuficiente!");
+        log_error("erro de alocação");
         return -1;
     }
 
@@ -109,7 +109,7 @@ int  indexOf (LinkedList *list, void *data, compare equal) {//descobre a posiça
 
 
 void* getPos (LinkedList *list, int pos) {   //busca dado em uma posiçao especifica
-    
+
 
 
 
