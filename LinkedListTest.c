@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "LinkedList.h"
+#include "log.h"
 
 bool compara(void *data1, void *data2) {
     int *d1 = (int*)data1;
@@ -9,6 +10,7 @@ bool compara(void *data1, void *data2) {
     return (*d1==*d2)?true:false;
 }
 int main() {
+    log_set_level(LOG_TRACE);
     LinkedList list;
     init(&list);
     
@@ -23,6 +25,11 @@ int main() {
     enqueue(&list, aux); 
     
     printf("%d\n",*((int*)first(&list)));
+        printf("indexOf(3): %d\n",indexOf(&list,aux,compara));
+    printf("getPos(2): %d\n",*((int*)getPos(&list,2)));
+    printf("dequeue(): %d\n",*((int*)dequeue(&list)));
+    printf("dequeue(): %d\n",*((int*)dequeue(&list)));
+    printf("dequeue(): %d\n",*((int*)dequeue(&list)));
 
     return EXIT_SUCCESS;
 }
