@@ -5,12 +5,12 @@
 
 typedef struct node {
     void *data;
-    struct node *previous;
-    struct node *next;
+    struct Node *previous;
+    struct Node *next;
 }node;
 
 typedef struct DoublyLinkedList {
-    node *first;
+    Node *first;
     int size;
 }DoublyLinkedList;
 
